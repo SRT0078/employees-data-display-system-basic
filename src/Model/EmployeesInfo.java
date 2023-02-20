@@ -6,11 +6,11 @@ package Model;
 
 public class EmployeesInfo {
     // create an global variabbble
-    int userId;
-    String firstName;
-    String lastName;
-    String occupation;
-    int monthlySalay;
+    private int userId;
+    private String firstName;
+    private String lastName;
+    private String occupation;
+    private int monthlySalay;
 
     // constructor
     public EmployeesInfo(int userId, String firstName, String lastName, String occupation, int monthlySalay){

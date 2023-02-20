@@ -18,7 +18,9 @@ public class Employees {
     
     // create an arrayList where it is EmployeesInfo types's data are store
     static ArrayList<EmployeesInfo> userInformation = new ArrayList();    
+    static Scanner sc = new Scanner(System.in); // create an object of Scanner methods
 
+    // add the new 3 people data in arrayList
     public static void addInformation(){
         userInformation.add(new EmployeesInfo(10, "Ram", "Nepali", "Teaching", 10000));
         userInformation.add(new EmployeesInfo(20, "Shiyan", "Maharjan", "Agricutlural", 10000));
@@ -35,16 +37,9 @@ public class Employees {
         System.out.println("  4. Quit the system.\n");
     }
     
-    // main methods
-    public static void main(String []args){
-        addInformation(); // call the addInformation methods
-        Scanner sc = new Scanner(System.in); // create an object of Scanner methods
-
-        // print the some message
-        System.out.println("---------------------------------------------------");
-        System.out.println("Hello sir! Welcome to my online system.");
-        System.out.println("---------------------------------------------------");
-        
+    // userInfo() methods where ask to display employees details
+    public static void userInfo(){
+       
         OUTER:
         while (true) {
             messages(); // call the message methods
@@ -67,8 +62,8 @@ public class Employees {
                         System.out.println("Occupation: "+ employeeInfo.getOccupation());
                     }   break;
                 case 3:
+                    System.out.println("This is the Name of Staffs");
                     for(EmployeesInfo employeeInfo:userInformation){
-                        System.out.println("This is the Name of Staffs");
                         System.out.println("First Name: "+ employeeInfo.getFirstName());
                         System.out.println("Last Name: "+ employeeInfo.getLastName());
                     }   break;
@@ -81,6 +76,27 @@ public class Employees {
                     System.out.println("*********************");
                     break;
             }
+        } 
+    }  
+    
+    // main methods
+    public static void main(String []args){
+        addInformation(); // call the addInformation methods
+       // print the some message
+        System.out.println("---------------------------------------------------");
+        System.out.println("Hello sir! Welcome to my online system.");
+        System.out.println("---------------------------------------------------");
+        
+        System.out.println("\nAre you want empolyees informations?");
+        System.out.print("Enter the 'y' or 'n': ");
+        String askQucation = sc.next();
+        // using the if statement
+        if("y".equals(askQucation)){
+            userInfo(); // call the userInfo() methods
+        } else if("n".equals(askQucation)){
+            System.out.println("Thank you.");
+        } else {
+            System.out.println("Enter the valid input!");
         }
-    }
+    }      
 }
